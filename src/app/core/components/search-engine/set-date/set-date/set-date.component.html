@@ -6,7 +6,14 @@
     <h1 class="">When do we start</h1>
   </label>
 
-  <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
+  <p-calendar
+    #date
+    name="date"
+    [(ngModel)]="date"
+    styleClass="my-inputswitch"
+  ></p-calendar>
+
+  <!-- <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
     <h1>When do we come home</h1>
   </label>
 
@@ -14,5 +21,5 @@
     class="border-2 border-black rounded-lg px-5 py-3 text-lg font-semibold"
   >
     Select the date
-  </button>
+  </button> -->
 </form>
