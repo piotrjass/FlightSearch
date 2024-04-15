@@ -1,0 +1,5 @@
+<div class="flex gap-5 mx-auto p-3 justify-center items-center">
+  @for(section of sections; track section.name){
+  <app-top-navbar-item [title]="section.name"></app-top-navbar-item>
+  }
+</div>
