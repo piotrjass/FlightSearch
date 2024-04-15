@@ -137,7 +137,7 @@ export class AirplaneButtonComponent implements OnInit {
 
   pushToFindAFlight() {
     setTimeout(() => {
-      this.router.navigate(['/find-a-flight']);
+      this.router.navigate(['/find-a-flight/place']);
     }, 2500);
   }
 }

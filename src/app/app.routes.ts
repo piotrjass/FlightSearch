@@ -1,6 +1,11 @@
 import { Routes } from '@angular/router';
+// components
 import { LandingPageComponent } from './shared/pages/landing-page/landing-page/landing-page.component';
 import { SearchEngineComponent } from './shared/pages/search-engine/search-engine/search-engine.component';
+import { SetDestFormComponent } from './core/components/search-engine/set-dest/set-dest-form/set-dest-form.component';
+import { SetDateComponent } from './core/components/search-engine/set-date/set-date/set-date.component';
+
+//
 export const routes: Routes = [
   {
     path: '',
@@ -11,5 +16,17 @@ export const routes: Routes = [
     path: 'find-a-flight',
     component: SearchEngineComponent,
     title: 'Search',
+    children: [
+      {
+        path: 'place',
+        component: SetDestFormComponent,
+        title: 'Find your place',
+      },
+      {
+        path: 'date',
+        component: SetDateComponent,
+        title: 'Check the date',
+      },
+    ],
   },
 ];
