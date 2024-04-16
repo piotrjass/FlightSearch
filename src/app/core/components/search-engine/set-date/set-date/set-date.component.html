@@ -2,24 +2,42 @@
   action=""
   class="flex flex-col gap- p-5 items-center justify-center mt-[10rem]"
 >
-  <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
-    <h1 class="">When do we start</h1>
-  </label>
+  <div name="step1" class="flex flex-col gap-5 p-5 items-center justify-center">
+    <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
+      <h1 class="">When do we start?</h1>
+    </label>
 
-  <p-calendar
-    #date
-    name="date"
-    [(ngModel)]="date"
-    styleClass="my-inputswitch"
-  ></p-calendar>
-
-  <!-- <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
-    <h1>When do we come home</h1>
-  </label>
-
+    <p-calendar
+      #date
+      name="date"
+      [(ngModel)]="flightSelectionService.startingDate"
+      styleClass="my-inputswitch"
+    ></p-calendar>
+  </div>
+  @if(flightSelectionService.startingDate !== null ){
+  <div
+    name="step2 "
+    class="flex flex-col gap-5 p-5 items-center justify-center"
+  >
+    <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
+      <h1 class="">When do we come back?</h1>
+    </label>
+    <p-calendar
+      #date
+      name="date"
+      [(ngModel)]="flightSelectionService.endingDate"
+      styleClass="my-inputswitch"
+    ></p-calendar>
+  </div>
+  } @if(flightSelectionService.startingDate !== null &&
+  flightSelectionService.endingDate !== null ){
   <button
-    class="border-2 border-black rounded-lg px-5 py-3 text-lg font-semibold"
+    routerLink="/results"
+    class="border-2 border-black rounded-full px-5 py-3 w-fit mx-auto text-lg font-semibold"
   >
     Select the date
-  </button> -->
+  </button>
+  }
 </form>
+<p>selected startingDate is {{ flightSelectionService.startingDate }}</p>
+<p>selected endingDate is {{ flightSelectionService.endingDate }}</p>

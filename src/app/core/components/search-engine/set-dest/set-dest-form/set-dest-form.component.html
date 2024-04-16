@@ -23,6 +23,7 @@
       <h1>What is a destination?</h1>
     </label>
     <select
+      [(ngModel)]="flightSelectionService.selectedEndingCity"
       name="selectedEndingCity"
       id=""
       class="min-w-[10rem] rounded-lg text-3xl text-center font-semibold bg-white"
@@ -40,3 +41,4 @@
   </button>
 </form>
 <p>selected city is {{ flightSelectionService.startingCity }}</p>
+<p>selected city is {{ flightSelectionService.selectedEndingCity }}</p>

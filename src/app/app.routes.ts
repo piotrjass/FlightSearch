@@ -4,6 +4,7 @@ import { LandingPageComponent } from './shared/pages/landing-page/landing-page/l
 import { SearchEngineComponent } from './shared/pages/search-engine/search-engine/search-engine.component';
 import { SetDestFormComponent } from './core/components/search-engine/set-dest/set-dest-form/set-dest-form.component';
 import { SetDateComponent } from './core/components/search-engine/set-date/set-date/set-date.component';
+import { ResultPageComponent } from './shared/pages/result-page/result-page/result-page.component';
 
 //
 export const routes: Routes = [
@@ -25,8 +26,13 @@ export const routes: Routes = [
       {
         path: 'date',
         component: SetDateComponent,
-        title: 'Check the date',
+        title: 'Set the date',
       },
     ],
+  },
+  {
+    path: 'results',
+    component: ResultPageComponent,
+    title: 'Check results',
   },
 ];

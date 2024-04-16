@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule, RouterLink } from '@angular/router';
 import { CalendarModule } from 'primeng/calendar';
 import { FormsModule } from '@angular/forms';
+import { FlightSelectionService } from '../../../../../shared/services/flight-selection.service';
 
 @Component({
   selector: 'app-set-date',
@@ -11,5 +12,5 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './set-date.component.css',
 })
 export class SetDateComponent {
-  date: Date = new Date();
+  constructor(public flightSelectionService: FlightSelectionService) {}
 }
