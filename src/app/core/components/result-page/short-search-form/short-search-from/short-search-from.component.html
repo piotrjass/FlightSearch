@@ -1,0 +1,44 @@
+<form action="" class="flex gap- p-5 items-center justify-center">
+  <div name="step1" class="flex gap-5 p-5 items-center justify-center">
+    <select
+      [(ngModel)]="flightSelectionService.startingCity"
+      name="selectedStartingCity"
+      id=""
+      class="min-w-[10rem] rounded-lg text-3xl text-center font-semibold bg-white"
+      #selectedStartingCity
+    >
+      <option class="border-black bg-white" value="Warsaw">Warsaw</option>
+      <option class="border-black bg-white" value="Tokio">Tokio</option>
+    </select>
+    <p-calendar
+      #date
+      name="date"
+      [(ngModel)]="flightSelectionService.startingDate"
+      styleClass="my-inputswitch"
+    ></p-calendar>
+  </div>
+
+  <div name="step2 " class="flex gap-5 p-5 items-center justify-center">
+    <select
+      [(ngModel)]="flightSelectionService.selectedEndingCity"
+      name="selectedEndingCity"
+      id=""
+      class="min-w-[10rem] rounded-lg text-3xl text-center font-semibold bg-white"
+      #selectedEndingCity
+    >
+      <option>Paris</option>
+    </select>
+    <p-calendar
+      #date
+      name="date"
+      [(ngModel)]="flightSelectionService.endingDate"
+      styleClass="my-inputswitch"
+    ></p-calendar>
+  </div>
+
+  <button
+    class="border-2 border-black rounded-full px-5 py-3 w-fit mx-auto text-lg font-semibold"
+  >
+    Search!
+  </button>
+</form>

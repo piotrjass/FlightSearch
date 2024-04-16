@@ -1,32 +1,52 @@
 <div name="container" class="flex">
-  <div name="start" class="flex flex-col p-10 gap-5 w-fit">
-    <p class="flex items-center justify-between gap-10 bg-red-100">
-      <span class="font-bold text-gray-400 text-md drop-shadow-lg">
-        From:
-      </span>
-      <span class="font-bold text-black text-5xl drop-shadow-lg">
-        {{ flightSelectionService.startingCity }}</span
-      >
-    </p>
-    <p class="flex items-center justify-between gap-10 bg-red-100">
-      <span class="font-bold text-gray-400 text-md drop-shadow-lg"> At </span>
-      <span class="font-bold text-black text-3xl drop-shadow-lg">
-        {{ flightSelectionService.startingDate | date: "dd/MM/yyyy" }}</span
-      >
-    </p>
+  <div
+    name="start"
+    class="flex p-10 gap-5 w-fit animate__animated animate__fadeInLeft"
+  >
+    <ng-icon
+      name="remixFlightTakeoffFill"
+      class="font-bold drop-shadow-lg text-7xl"
+    ></ng-icon>
+    <div>
+      <p class="flex items-center justify-between gap-10">
+        <span class="font-bold text-gray-400 text-md drop-shadow-lg">
+          From:
+        </span>
+        <span class="font-bold text-black text-5xl drop-shadow-lg">
+          {{ flightSelectionService.startingCity }}</span
+        >
+      </p>
+      <p class="flex items-center justify-between gap-10">
+        <span class="font-bold text-gray-400 text-md drop-shadow-lg"> At </span>
+        <span class="font-bold text-black text-3xl drop-shadow-lg">
+          {{ flightSelectionService.startingDate | date: "dd/MM/yyyy" }}</span
+        >
+      </p>
+    </div>
   </div>
-  <div name="end" class="flex flex-col p-10 gap-5 w-fit">
-    <p class="flex items-center justify-between gap-10 bg-red-100">
-      <span class="font-bold text-gray-400 text-md drop-shadow-lg"> To: </span>
-      <span class="font-bold text-black text-5xl drop-shadow-lg">
-        {{ flightSelectionService.selectedEndingCity }}</span
-      >
-    </p>
-    <p class="flex items-center justify-between gap-10 bg-red-100">
-      <span class="font-bold text-gray-400 text-md drop-shadow-lg"> At </span>
-      <span class="font-bold text-black text-3xl drop-shadow-lg">
-        {{ flightSelectionService.endingDate | date: "dd/MM/yyyy" }}</span
-      >
-    </p>
+  <div
+    name="end"
+    class="flex p-10 gap-5 w-fit animate__animated animate__fadeInRight"
+  >
+    <ng-icon
+      name="remixFlightLandFill"
+      class="font-bold drop-shadow-lg text-7xl"
+    ></ng-icon>
+    <div>
+      <p class="flex items-center justify-between gap-10">
+        <span class="font-bold text-gray-400 text-md drop-shadow-lg">
+          To:
+        </span>
+        <span class="font-bold text-black text-5xl drop-shadow-lg">
+          {{ flightSelectionService.selectedEndingCity }}</span
+        >
+      </p>
+      <p class="flex items-center justify-between gap-10">
+        <span class="font-bold text-gray-400 text-md drop-shadow-lg"> At </span>
+        <span class="font-bold text-black text-3xl drop-shadow-lg">
+          {{ flightSelectionService.endingDate | date: "dd/MM/yyyy" }}</span
+        >
+      </p>
+    </div>
   </div>
 </div>
