@@ -5,6 +5,7 @@ import { SearchEngineComponent } from './shared/pages/search-engine/search-engin
 import { SetDestFormComponent } from './core/components/search-engine/set-dest/set-dest-form/set-dest-form.component';
 import { SetDateComponent } from './core/components/search-engine/set-date/set-date/set-date.component';
 import { ResultPageComponent } from './shared/pages/result-page/result-page/result-page.component';
+import { SetPassengersComponent } from './core/components/search-engine/set-passengers/set-passengers/set-passengers.component';
 
 //
 export const routes: Routes = [
@@ -27,6 +28,11 @@ export const routes: Routes = [
         path: 'date',
         component: SetDateComponent,
         title: 'Set the date',
+      },
+      {
+        path: 'passengers',
+        component: SetPassengersComponent,
+        title: 'Who is flying',
       },
     ],
   },

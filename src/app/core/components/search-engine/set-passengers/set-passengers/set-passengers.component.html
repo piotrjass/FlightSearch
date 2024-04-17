@@ -1,0 +1,56 @@
+<form
+  action=""
+  class="flex flex-col gap- p-5 items-center justify-center mt-[10rem]"
+>
+  <div name="step1" class="flex flex-col gap-5 p-5 items-center justify-center">
+    <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
+      <h1 class="">Adults number</h1>
+    </label>
+    <select
+      [(ngModel)]="flightSelectionService.adultsNumber"
+      name="selectedStartingCity"
+      id=""
+      class="min-w-[10rem] rounded-lg text-3xl text-center font-semibold bg-white"
+      #selectedStartingCity
+    >
+      <option class="border-black bg-white" value="0">0</option>
+      <option class="border-black bg-white" value="1">1</option>
+      <option class="border-black bg-white" value="2">2</option>
+      <option class="border-black bg-white" value="3">3</option>
+      <option class="border-black bg-white" value="4">4</option>
+    </select>
+  </div>
+  <div
+    name="step2 "
+    class="flex flex-col gap-5 p-5 items-center justify-center"
+  >
+    <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
+      <h1 class="">Children number</h1>
+    </label>
+    <select
+      [(ngModel)]="flightSelectionService.childrenNumber"
+      name="selectedStartingCity"
+      id=""
+      class="min-w-[10rem] rounded-lg text-3xl text-center font-semibold bg-white"
+      #selectedStartingCity
+    >
+      <option class="border-black bg-white" value="0">0</option>
+      <option class="border-black bg-white" value="1">1</option>
+      <option class="border-black bg-white" value="2">2</option>
+      <option class="border-black bg-white" value="3">3</option>
+      <option class="border-black bg-white" value="4">4</option>
+    </select>
+  </div>
+  @if(flightSelectionService.validatePassengers()){
+  <button
+    routerLink="/results"
+    class="flex gap-3 items-center justify-center font-bold text-xl border-2 border-black rounded-full px-5 py-1 transition-all duration-300 hover:text-gray-400 hover:border-gray-400"
+  >
+    <p class="drop-shadow-lg">Search flights</p>
+    <ng-icon
+      name="octPaperAirplane"
+      class="font-bold drop-shadow-lg text-xl"
+    ></ng-icon>
+  </button>
+  }
+</form>
