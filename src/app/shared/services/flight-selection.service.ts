@@ -9,7 +9,7 @@ export class FlightSelectionService {
   // startingDate: Date | null = null;
   // endingDate: Date | null = null;
   startingDate: Date = new Date();
-  endingDate: Date = new Date();
+  endingDate: Date = this.startingDate;
 
   constructor() {}
 }

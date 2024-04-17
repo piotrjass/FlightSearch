@@ -23,6 +23,7 @@
     "@angular/ssr": "^17.2.0",
     "@ng-icons/core": "^27.3.1",
     "@ng-icons/heroicons": "^27.3.1",
+    "@ng-icons/octicons": "^27.3.1",
     "@ng-icons/remixicon": "^27.3.1",
     "@types/gsap": "^3.0.0",
     "animate.css": "^4.1.1",

@@ -1,44 +1,47 @@
-<form
-  action=""
-  class="flex flex-col gap-15 p-10 items-center justify-center border-2 border-black grow-0"
->
-  <div name="part1" class="flex flex-col p-10 gap-5 bg-red-100">
-    <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
-      <h1 class="">Where do we start?</h1>
-    </label>
-    <select
-      [(ngModel)]="flightSelectionService.startingCity"
-      name="selectedStartingCity"
-      id=""
-      class="min-w-[10rem] rounded-lg text-3xl text-center font-semibold bg-white"
-      #selectedStartingCity
+<div class="flex flex-col w-screen h-screen justify-center items-center gap-5">
+  <form action="" class="flex flex-col gap-15 p-10 items-center justify-center">
+    <div name="part1" class="flex flex-col p-10 gap-5">
+      <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
+        <h1 class="">Where do we start?</h1>
+      </label>
+      <select
+        [(ngModel)]="flightSelectionService.startingCity"
+        name="selectedStartingCity"
+        id=""
+        class="min-w-[10rem] rounded-lg text-3xl text-center font-semibold bg-white"
+        #selectedStartingCity
+      >
+        <option class="border-black bg-white" value="Warsaw">Warsaw</option>
+        <option class="border-black bg-white" value="Tokio">Tokio</option>
+      </select>
+    </div>
+    @if(flightSelectionService.startingCity !== ''){
+    <div name="part2" class="flex flex-col gap-5 p-10">
+      <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
+        <h1>What is a destination?</h1>
+      </label>
+      <select
+        [(ngModel)]="flightSelectionService.selectedEndingCity"
+        name="selectedEndingCity"
+        id=""
+        class="min-w-[10rem] rounded-lg text-3xl text-center font-semibold bg-white"
+        #selectedEndingCity
+      >
+        <option>Paris</option>
+      </select>
+    </div>
+    }
+    <button
+      routerLink="/find-a-flight/date"
+      class="flex gap-3 items-center justify-center font-bold text-xl border-2 border-black rounded-full px-5 py-1 transition-all duration-300 hover:text-gray-400 hover:border-gray-400"
     >
-      <option class="border-black bg-white" value="Warsaw">Warsaw</option>
-      <option class="border-black bg-white" value="Tokio">Tokio</option>
-    </select>
-  </div>
-  @if(flightSelectionService.startingCity !== ''){
-  <div name="part2" class="flex flex-col gap-5 bg-blue-100 p-10">
-    <label for="" class="text-5xl font-bold drop-shadow-md typewriter">
-      <h1>What is a destination?</h1>
-    </label>
-    <select
-      [(ngModel)]="flightSelectionService.selectedEndingCity"
-      name="selectedEndingCity"
-      id=""
-      class="min-w-[10rem] rounded-lg text-3xl text-center font-semibold bg-white"
-      #selectedEndingCity
-    >
-      <option>Paris</option>
-    </select>
-  </div>
-  }
-  <button
-    routerLink="/find-a-flight/date"
-    class="border-2 border-black rounded-full px-5 py-3 w-fit mx-auto text-lg font-semibold"
-  >
-    Select the date
-  </button>
-</form>
-<p>selected city is {{ flightSelectionService.startingCity }}</p>
-<p>selected city is {{ flightSelectionService.selectedEndingCity }}</p>
+      <p class="drop-shadow-lg">Next</p>
+      <ng-icon
+        name="octPaperAirplane"
+        class="font-bold drop-shadow-lg text-xl"
+      ></ng-icon>
+    </button>
+  </form>
+  <!-- <p>selected city is {{ flightSelectionService.startingCity }}</p>
+  <p>selected city is {{ flightSelectionService.selectedEndingCity }}</p> -->
+</div>
