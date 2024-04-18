@@ -38,10 +38,17 @@ export class FlightSelectionService {
     }&departureDate=${this.formatDate(this.startingDate)}&adults=${
       this.adultsNumber
     }&nonStop=false&max=250`;
-    this.responseData$ = this.http.get(url);
-    console.log(this.responseData$);
-    this.loadData = true;
-    console.log(url);
+    //
+    this.http.get(url, { headers: this.headers }).subscribe((data: any) => {
+      this.responseData$ = data;
+      console.log(data.data);
+    });
+
+    //
+    // this.responseData$ = this.http.get(url);
+    // console.log(this.responseData$);
+    // this.loadData = true;
+    // console.log(url);
   }
   // format data
 
