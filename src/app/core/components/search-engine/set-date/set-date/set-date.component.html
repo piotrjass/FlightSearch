@@ -12,6 +12,7 @@
       name="date"
       [(ngModel)]="flightSelectionService.startingDate"
       styleClass="my-inputswitch"
+      (ngModelChange)="flightSelectionService.validateDates()"
     ></p-calendar>
   </div>
   @if(flightSelectionService.startingDate !== flightSelectionService.endingDate
@@ -28,6 +29,7 @@
       name="date"
       [(ngModel)]="flightSelectionService.endingDate"
       styleClass="my-inputswitch"
+      (ngModelChange)="flightSelectionService.validateDates()"
     ></p-calendar>
   </div>
   } @if(flightSelectionService.validateDates()){
