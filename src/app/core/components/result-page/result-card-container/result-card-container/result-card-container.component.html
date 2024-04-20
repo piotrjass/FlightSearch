@@ -1,0 +1,9 @@
+@for(object of flightSelectionService.objectsToDisplayInCards; track object){
+<app-result-card
+  [price]="object.price"
+  [code]="object.code"
+  [seats]="object.seats"
+></app-result-card>
+} @if( flightSelectionService.objectsToDisplayInCards.length === 0){
+<div class="text-xl font-bold">Found no flights, try again!</div>
+}

@@ -26,6 +26,7 @@ export class FlightSelectionService {
   endingDate: Date = this.startingDate;
   adultsNumber: number = 0;
   childrenNumber: number = 0;
+  objectsToDisplayInCards: any[] = [];
   // functions
 
   // api requests
@@ -41,9 +42,44 @@ export class FlightSelectionService {
     //
     this.http.get(url, { headers: this.headers }).subscribe((data: any) => {
       this.responseData$ = data;
-      console.log(data.data);
-    });
+      console.log(data);
+      const flightOffers = data.data || []; // Assuming flight offers are in `data.data`
 
+      const sortedResults: any[] = flightOffers.sort(
+        (offerA: any, offerB: any) => {
+          return (
+            parseFloat(offerA.price.total) - parseFloat(offerB.price.total)
+          );
+        },
+      );
+
+      // const firstFiveResults = Array.isArray(data.data)
+      //   ? data.data.slice(0, 5)
+      //   : [];
+      const firstFiveResults = sortedResults.slice(0, 5);
+      console.log(firstFiveResults);
+      for (const result of firstFiveResults) {
+        // Destrukturyzacja obiektu, aby uzyskać potrzebne pola
+        const {
+          numberOfBookableSeats,
+          validatingAirlineCodes,
+          lastTicketingDate,
+          price,
+        } = result;
+        const { currency, total } = price;
+        const formattedPrice = `${total} ${currency}`;
+        const displayObject = {
+          seats: numberOfBookableSeats,
+          price: formattedPrice,
+          date: lastTicketingDate,
+          code: validatingAirlineCodes,
+        };
+
+        // Dodanie obiektu do tablicy objectsToDisplayInCards
+        this.objectsToDisplayInCards.push(displayObject);
+      }
+    });
+    console.log(this.objectsToDisplayInCards);
     //
     // this.responseData$ = this.http.get(url);
     // console.log(this.responseData$);
