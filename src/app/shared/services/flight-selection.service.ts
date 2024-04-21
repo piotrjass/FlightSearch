@@ -12,9 +12,10 @@ export class FlightSelectionService {
   constructor(private http: HttpClient) {}
   // env variables
   amadeusAPIKey = environment.APIKEY;
+  token = environment.TOKEN;
   headers = new HttpHeaders()
     .set('Accept', 'application/vnd.amadeus+json')
-    .set('Authorization', `Bearer  ${this.amadeusAPIKey}`);
+    .set('Authorization', `Bearer  ${this.token}`);
   // rxjs varibales
   responseData$: Observable<any> | undefined;
   loadData: boolean = false;
