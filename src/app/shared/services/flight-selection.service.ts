@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../enviroments/environment.development';
+import { environment } from '../../../environments/environment.development';
 import { all_capitals_airports } from '../data/airports_iata_codes';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { shuffle } from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -11,11 +10,10 @@ export class FlightSelectionService {
   // constructor
   constructor(private http: HttpClient) {}
   // env variables
-  amadeusAPIKey = environment.APIKEY;
-  amadues_token = environment.amadues_token;
+  token = environment.token;
   headers = new HttpHeaders()
     .set('Accept', 'application/vnd.amadeus+json')
-    .set('Authorization', `Bearer  ${this.amadues_token}`);
+    .set('Authorization', `Bearer  ${this.token}`);
   // rxjs varibales
   responseData$: Observable<any> | undefined;
   loadData: boolean = false;
@@ -34,7 +32,7 @@ export class FlightSelectionService {
   // api requests
   async searchFlight() {
     // url: string = `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${this.selectedAirportCode}&destinationLocationCode=BKK&departureDate=2024-05-05&adults=1&nonStop=false&max=250`;
-    console.log(this.amadues_token);
+    console.log(this.token);
     let url: string = `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${
       this.startingCity
     }&destinationLocationCode=${
