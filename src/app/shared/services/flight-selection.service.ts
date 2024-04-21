@@ -14,7 +14,7 @@ export class FlightSelectionService {
   amadeusAPIKey = environment.APIKEY;
   token = environment.TOKEN;
   headers = new HttpHeaders()
-    .set('Accept', 'application/json')
+    .set('Accept', 'application/vnd.amadeus+json')
     .set('Authorization', `Bearer  ${this.token}`);
   // rxjs varibales
   responseData$: Observable<any> | undefined;
@@ -34,6 +34,7 @@ export class FlightSelectionService {
   // api requests
   async searchFlight() {
     // url: string = `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${this.selectedAirportCode}&destinationLocationCode=BKK&departureDate=2024-05-05&adults=1&nonStop=false&max=250`;
+    console.log(this.token);
     let url: string = `https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=${
       this.startingCity
     }&destinationLocationCode=${

@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  // this key is temporary...
-  APIKEY: '',
-  TOKEN: '',
+  // this keys is temporary...
+  APIKEY: '111',
+  TOKEN: '222',
 };
