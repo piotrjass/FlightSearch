@@ -11,12 +11,12 @@ body {
   position: relative;
 }
 
-.frame {
+/* .frame {
   width: 500px;
   height: auto;
   position: absolute;
   width: 100%;
-}
+} */
 
 svg {
   max-width: 100%;

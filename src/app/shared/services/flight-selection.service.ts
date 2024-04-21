@@ -3,6 +3,7 @@ import { environment } from '../../../enviroments/environment.development';
 import { all_capitals_airports } from '../data/airports_iata_codes';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { shuffle } from 'lodash';
 @Injectable({
   providedIn: 'root',
 })
@@ -43,23 +44,12 @@ export class FlightSelectionService {
     this.http.get(url, { headers: this.headers }).subscribe((data: any) => {
       this.responseData$ = data;
       console.log(data);
-      const flightOffers = data.data || []; // Assuming flight offers are in `data.data`
-
-      const sortedResults: any[] = flightOffers.sort(
-        (offerA: any, offerB: any) => {
-          return (
-            parseFloat(offerA.price.total) - parseFloat(offerB.price.total)
-          );
-        },
-      );
-
-      // const firstFiveResults = Array.isArray(data.data)
-      //   ? data.data.slice(0, 5)
-      //   : [];
-      const firstFiveResults = sortedResults.slice(0, 5);
+      const flightOffers = data.data || [];
+      const shuffledFlightOffers = this.shuffleArray(flightOffers);
+      console.log(flightOffers);
+      const firstFiveResults = shuffledFlightOffers.slice(0, 5);
       console.log(firstFiveResults);
       for (const result of firstFiveResults) {
-        // Destrukturyzacja obiektu, aby uzyskać potrzebne pola
         const {
           numberOfBookableSeats,
           validatingAirlineCodes,
@@ -74,19 +64,19 @@ export class FlightSelectionService {
           date: lastTicketingDate,
           code: validatingAirlineCodes,
         };
-
-        // Dodanie obiektu do tablicy objectsToDisplayInCards
         this.objectsToDisplayInCards.push(displayObject);
       }
     });
     console.log(this.objectsToDisplayInCards);
-    //
-    // this.responseData$ = this.http.get(url);
-    // console.log(this.responseData$);
-    // this.loadData = true;
-    // console.log(url);
   }
-  // format data
+
+  shuffleArray(array: any[]): any[] {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
 
   formatDate(date: Date): string {
     const year = date.getFullYear();

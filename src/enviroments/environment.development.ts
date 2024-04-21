@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
   // this key is temporary...
-  APIKEY: 'zXjDGqJ72FkFcslL9LsREmlMEGWQ',
+  APIKEY: '4cjnr69HsshSX8JMNYPKZrw4gvKA',
 };
