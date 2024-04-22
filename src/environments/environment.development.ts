@@ -1,1 +1,4 @@
-export const environment = { token: '123' };
+export const environment = {
+  production: true,
+  token: '123',
+};
